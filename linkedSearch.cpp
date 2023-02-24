@@ -65,9 +65,11 @@ Node *deleteThirdNode(Node *head){
     if(head==NULL){
         return NULL;
     }else{
-        Node *head = head->next;
+        Node *temp = head->next;
         head->next = head->next->next;
-    }
+        delete temp;
+        return  head;
+    } 
     
 }
 int main()
@@ -84,6 +86,7 @@ int main()
     Node *head = n1;
     Search(head, 8) ? cout << "found" << endl : cout << "not found" << endl;
     head = DeleteFirstNode(head);
+    head = deleteThirdNode(head);
     head = deleteLastNode(head);
     display(head);
 }
