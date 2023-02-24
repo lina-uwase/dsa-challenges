@@ -62,6 +62,12 @@ Node *deleteLastNode(Node *head){
     return head;
 }
 Node *deleteThirdNode(Node *head){
+    if(head==NULL){
+        return NULL;
+    }else{
+        Node *head = head->next;
+        head->next = head->next->next;
+    }
     
 }
 int main()
