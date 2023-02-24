@@ -19,7 +19,7 @@ void display(Node *head)
         cout << head->data << "->";
         head = head->next;
     }
-    cout << "Null"<<endl;
+    cout << "Null" << endl;
 }
 bool Search(Node *head, int x)
 {
@@ -40,62 +40,89 @@ Node *DeleteFirstNode(Node *head)
     {
         return NULL;
     }
-    Node* temp = head;
+    Node *temp = head;
     head = head->next;
     delete temp;
     return head;
 }
-Node *deleteLastNode(Node *head){
-    if(head==NULL){
+Node *deleteLastNode(Node *head)
+{
+    if (head == NULL)
+    {
         return NULL;
-    }if(head->next==NULL){
+    }
+    if (head->next == NULL)
+    {
         delete head;
         return NULL;
     }
     Node *temp = head;
-    while(temp->next->next!=NULL){
+    while (temp->next->next != NULL)
+    {
         temp = temp->next;
     }
     Node *last = temp->next;
-    delete(last);
+    delete (last);
     temp->next = NULL;
     return head;
 }
-Node *deleteThirdNode(Node *head){
-    if(head==NULL){
+Node *deleteThirdNode(Node *head)
+{
+    if (head == NULL)
+    {
         return NULL;
-    }else{
+    }
+    else
+    {
         Node *temp = head->next;
         head->next = head->next->next;
         delete temp;
-        return  head;
-    } 
-    
-}
-Node *deleteNode(Node *head,int i){
-    if(i<=0){
         return head;
-    }if(i==1 && head){
-        Node *newHead  = head->next;
+    }
+}
+Node *deleteNode(Node *head, int i)
+{
+    if (i <= 0)
+    {
+        return head;
+    }
+    if (i == 1 && head)
+    {
+        Node *newHead = head->next;
         head->next = NULL;
         delete head;
         return newHead;
-
     }
     Node *curr = head;
     int count = 1;
-    while(count<i-1 && curr!=NULL){
+    while (count < i - 1 && curr != NULL)
+    {
         curr = curr->next;
         count++;
     }
-    if(curr && curr ->next){
-        Node *temp = curr ->next;
+    if (curr && curr->next)
+    {
+        Node *temp = curr->next;
         curr->next = curr->next->next;
         temp->next = NULL;
         delete temp;
-        return head;
     }
     return head;
+}
+Node *reverse(Node *head)
+{
+    Node *previous = NULL;
+    Node *current = head;
+    Node *ahead = NULL;
+
+    while (current != NULL)
+    {
+        ahead = current->next;
+        current->next = previous;
+        previous = current;
+        current = ahead;
+    }
+    return previous;
 }
 int main()
 {
@@ -106,14 +133,14 @@ int main()
     Node *n5 = new Node(17);
     Node *n6 = new Node(20);
 
-
     n1->next = n2;
     n2->next = n3;
     n3->next = n4;
     n4->next = n5;
     n5->next = n6;
     Node *head = n1;
-    head = deleteNode(head,4 );
+    head = reverse(head);
+    // head = deleteNode(head,4 );
     // Search(head, 8) ? cout << "found" << endl : cout << "not found" << endl;
     // head = DeleteFirstNode(head);
     // head = deleteThirdNode(head);
