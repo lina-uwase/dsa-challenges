@@ -110,7 +110,7 @@ Node *deleteNode(Node *head, int i)
     return head;
 }
 Node *reverse(Node *head)
-{
+{git 
     Node *previous = NULL;
     Node *current = head;
     Node *ahead = NULL;
@@ -123,6 +123,20 @@ Node *reverse(Node *head)
         current = ahead;
     }
     return previous;
+}
+Node *midNode(Node *head){
+    Node *fast = head;
+    Node *slow = head;
+    Node *current  = head;
+
+    while(fast!=NULL && fast->next!=NULL && fast->next->next!=NULL)  {
+        fast=fast->next->next;
+        slow = slow->next;
+
+    }
+    return slow;
+
+
 }
 int main()
 {
@@ -140,10 +154,13 @@ int main()
     n5->next = n6;
     Node *head = n1;
     head = reverse(head);
+    Node *mid = midNode(head);
     // head = deleteNode(head,4 );
     // Search(head, 8) ? cout << "found" << endl : cout << "not found" << endl;
     // head = DeleteFirstNode(head);
     // head = deleteThirdNode(head);
     // head = deleteLastNode(head);
     display(head);
+    cout<<"the middle node is: "<<mid<<endl;
+
 }
