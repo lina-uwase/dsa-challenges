@@ -110,7 +110,7 @@ Node *deleteNode(Node *head, int i)
     return head;
 }
 Node *reverse(Node *head)
-{git 
+{
     Node *previous = NULL;
     Node *current = head;
     Node *ahead = NULL;
