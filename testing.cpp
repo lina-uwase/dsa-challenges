@@ -12,7 +12,7 @@ void print_studentData(Student s){
     cout<<s.name<<endl;
     cout<<s.rollNumber<<endl;
 }
-Student make
+
 
 int main(){
     cout<<"enter name: ";
