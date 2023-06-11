@@ -34,7 +34,6 @@ n->next = head;
 head = n;
 size++;
 }
-
 void pop(){
 if(isEmpty()){
 cout<<"Stack empty"<<endl;

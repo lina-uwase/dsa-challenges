@@ -30,6 +30,8 @@ return size==0;
 
 void push(Node ele){
 Node *n = new Node(ele);
+Node *bend = new Node(ele);
+
 n->next = head;
 head = n;
 size++;
